@@ -11,7 +11,7 @@ st.subheader('Добро пожаловать в скоринговую сист
 
 
 with open("knn_model.pkl", "rb") as pickle_in:
-    classifier2 = joblib.load(pickle_in)
+    classifier1 = joblib.load(pickle_in)
 
 
 
