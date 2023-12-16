@@ -71,12 +71,12 @@ def issue_a_loan(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_pr
     # Преобразуем в массив numpy и делаем предсказание
     input_array = np.array(input_data).reshape(1, -1)
     prediction1 = classifier1.predict(input_array)
-    prediction2 = classifier2.predict(input_array)
-    prediction3 = classifier3.predict(input_array)
+    prediction2 = regression1.predict(input_array)
+    prediction3 = regression2.predict(input_array)
     total_pred = (prediction1 + prediction2 + prediction3) / 3
     prediction2_1 = classifier1.predict_proba(input_array)
-    prediction2_2 = classifier2.predict_proba(input_array)
-    prediction2_3 = classifier3.predict_proba(input_array)
+    prediction2_2 = regression1.predict_proba(input_array)
+    prediction2_3 = regression2.predict_proba(input_array)
     total_pred2 = (prediction2_1 + prediction2_2 + prediction2_3) / 3
     return total_pred, total_pred2
 
