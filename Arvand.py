@@ -20,31 +20,13 @@ with open("model_gb.pkl", "rb") as pickle_in:
     regression2 = joblib.load(pickle_in)
 
 # Создание DataFrame с данными
-data1 = pd.DataFrame({'Nationality': ['Узбек', 'Точик', 'Тотор', 'Рус', 'Киргиз', 'Украин', 'Другие', 'Карис', 'Карачои']})
-data2 = pd.DataFrame({'Filial': ['Истаравшан', 'Хучанд', 'Ч. Расулов', 'Душанбе', 'Исфара', 'Панчакент']})
-data3 = pd.DataFrame({'Region': ['Шахристон', 'Гули сурх', 'Худжанд-Центр', 'Спитамен', 'Шарк', 'Мархамат', 'Душанбе', 'Навкент',
-               'Кистакуз', 'Худжанд-Панчшанбе', 'Бустон', 'Истаравшан-филиал', 'Рудаки', 'Ашт', 'Калининобод',
-               'Сино', 'Исфара', 'Хисор', 'Зафаробод', 'Ничони', 'Вахдат', 'Мехнатобод', 'Уяс', 'Дж.Расулов',
-               'Конибодом', 'Дусти', 'Ниёзбек','Истаравшан', 'Рогун','Гончи', 'Чашмасор', 'Нофароч', 'Ободи',
-               'Каракчикум', 'Оббурдон', 'Куруш', 'Ворух', 'Гулякандоз', 'Некфайз', 'Сомгор', 'Пунук', 'Панчакент',
-               'Кулканд', 'Оппон', 'Файзобод', 'Турсунзода', 'Гусар', 'Равшан','Ифтихор', 'Х.Алиев', 'Ёри',
-               'Мучун', 'Саразм']})
-data4 = pd.DataFrame({'loan_goal': ['Животноводство и переработка молока', 'Приобретение техники', 'Ремонт дома', 'торговля',
-                  'Земледелие', 'Приобретение мебели', 'Оплата на лечение', 'Проведение мероприятий', 'Оплата поездок',
-                  'Услуги', 'Переоборудование транспорта', 'Потребнужды', 'Оплата образования', 'Производство',
-                  'Покупка квартиры', 'Потреб.другое', 'Ремонт места деятельности', 'Сельское хозяйство', 'Все',
-                  'Сушка фруктов', 'Коммерческий']})
-data5 = pd.DataFrame({'sector': ['Животноводство', 'Потреб Экспресс', 'Потребнужды', 'Торговля', 'Зеленый кредит - Печки',
-               'Сельхозкультура (ТАФФ)', 'Ремонт жилья', 'Бизнес Экспресс', 'Услуги', 'KFW - Ремонт жилья',
-               'Сельхозтехника (ТАФФ)', 'KFW - Покупка и строит-во жилья', 'Производство', 'Образование',
-               'Мигрант-бизнес 2', 'Мигрант-Потреб 2', 'Покупка и строит-во жилья', 'Товары в кредит', 'Корманд-кредит',
-               'Мигрант', 'Старт-бизнес', 'Зеленый кредит - Солнечные батареи', ' Жилье для сотрудников', 'Достижения',
-               'Сельхозкультура (Сароб)', 'Сельхозкультура-кредитная линия']})
-data6 = pd.DataFrame({'pledge': ['Поручительство(Группа)', 'Недвижимость', 'Движимое имущество', 'Поручительство','Без залога']})
-data7 = pd.DataFrame({'currency': ['Доллар США', 'Сомони', 'Рос.рубль']})
+data1 = pd.DataFrame({'Married': ['Беоила', 'Оиладор', 'Бевамард (бевазан)', 'Чудошуда']})
+data2 = pd.DataFrame({'Nationality': ['Узбек', 'Точик', 'Тотор', 'Рус', 'Киргиз', 'Украин', 'Другие', 'Карис', 'Карачои']})
+data3 = pd.DataFrame({'Educ': ['Аспирантура', 'Миёна', 'Миёнаи махсус', 'Миёнаи нопурра', 'Оли', 'Олии нопурра']})
+
     
-def issue_a_loan(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
+def issue_a_loan(FamilySize, Loan_amount, Loan_term, Monthly_repayment_amount_according_to_the_schedule, Grace_preiod, capital, active,
+                 days_of_delay, Number_of_delays, The_stage_of_lending_(which_time_receives_a_loan, Education, business_experience, type_of_credit, has_overdue,
                  high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
                  sector_encoded, currency_encoded, pledge_encoded):
     # Преобразование business_experience в числовой формат
@@ -52,7 +34,7 @@ def issue_a_loan(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_pr
 
     # Преобразование всех переменных в числовой формат
     input_data = [
-        Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
+        Gender, FamilySize, Loan_amount, Loan_term, Monthly_repayment_amount_according_to_the_schedule, Grace_preiod, Debt, Lending_stage,
         Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
         high_debt
     ]
