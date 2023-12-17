@@ -25,28 +25,32 @@ data2 = pd.DataFrame({'Nationality': ['Узбек', 'Точик', 'Тотор', 
 data3 = pd.DataFrame({'Educ': ['Аспирантура', 'Миёна', 'Миёнаи махсус', 'Миёнаи нопурра', 'Оли', 'Олии нопурра']})
 
     
-def issue_a_loan(FamilySize, Loan_amount, Loan_term, Monthly_repayment_amount_according_to_the_schedule, Grace_preiod, capital, active,
-                 days_of_delay, Number_of_delays, The_stage_of_lending_(which_time_receives_a_loan, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded):
+def issue_a_loan(FamilySize, Loan Amount, Loan Term,
+                 Monthly repayment amount according to schedule, Grace period (month),
+                 Capital, Asset, Days overdue, Number of overdue,
+                 Lending stage (which time a loan is received, Gross profit,
+                 Net Profit, Age, isFemale, Filial_code,
+                 Region_code, Direction of activity, Currency_code, Pledge_code,
+                 business_experience):
     # Преобразование business_experience в числовой формат
     business_experience = int(business_experience)
 
     # Преобразование всех переменных в числовой формат
     input_data = [
-        Gender, FamilySize, Loan_amount, Loan_term, Monthly_repayment_amount_according_to_the_schedule, Grace_preiod, Debt, Lending_stage,
-        Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-        high_debt
+        FamilySize, Loan_Amount, Loan_Term,
+        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Capital, Asset, Days_overdue, Number_of_overdue,
+        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Net_Profit, Age, isFemale, Filial_code,
+        Region_code, Direction_of_activity, Currency_code, Pledge_code,
+        business_experience
     ]
 
     # Объединение закодированных данных
-    input_data.extend(nationality_encoded.values.flatten())
-    input_data.extend(filial_encoded.values.flatten())
-    input_data.extend(region_encoded.values.flatten())
-    input_data.extend(loan_goal_encoded.values.flatten())
-    input_data.extend(sector_encoded.values.flatten())
-    input_data.extend(currency_encoded.values.flatten())
-    input_data.extend(pledge_encoded.values.flatten())
+    input_data.extend(Married_encoded.values.flatten())
+    input_data.extend(Nationality_encoded.values.flatten())
+    input_data.extend(Educ_encoded.values.flatten())
+    
                      
     # Преобразуем в массив numpy и делаем предсказание
     input_array = np.array(input_data).reshape(1, -1)
@@ -60,44 +64,56 @@ def issue_a_loan(FamilySize, Loan_amount, Loan_term, Monthly_repayment_amount_ac
     return total_pred, total_pred2
 
 
-def Delays_days(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded):
+def Delays_days(FamilySize, Loan_Amount, Loan_Term,
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, isFemale, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
+                 business_experience):
     # Исправлено: добавлено преобразование business_experience в числовой формат
     business_experience = int(business_experience)
 
     input_data = [
-        Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-        Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-        high_debt
+        FamilySize, Loan_Amount, Loan_Term,
+        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Capital, Asset, Days_overdue, Number_of_overdue,
+        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Net_Profit, Age, isFemale, Filial_code,
+        Region_code, Direction_of_activity, Currency_code, Pledge_code,
+        business_experience
     ]
 
     # Объединение закодированных данных
-    input_data = pd.concat([pd.Series(input_data), nationality_encoded, filial_encoded, region_encoded, 
-                            loan_goal_encoded, sector_encoded, currency_encoded, pledge_encoded], axis=0)
+    input_data = pd.concat([pd.Series(input_data), Married_encoded, Nationality_encoded, Educ_encoded], axis=0)
 
     # Преобразуем в массив numpy и делаем предсказание
     input_array = np.array(input_data).reshape(1, -1)
     reg1 = regression1.predict(input_array)
     return reg1  
 
-def Credit_sum(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded, issue):
+def Credit_sum(FamilySize, Loan_Amount, Loan_Term,
+        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Capital, Asset, Days_overdue, Number_of_overdue,
+        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Net_Profit, Age, isFemale, Filial_code,
+        Region_code, Direction_of_activity, Currency_code, Pledge_code,
+        business_experience):
     # Исправлено: добавлено преобразование business_experience в числовой формат
     business_experience = int(business_experience)
 
     input_data = [
-        Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-        Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-        high_debt, issue
+       FamilySize, Loan_Amount, Loan_Term,
+        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Capital, Asset, Days_overdue, Number_of_overdue,
+        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Net_Profit, Age, isFemale, Filial_code,
+        Region_code, Direction_of_activity, Currency_code, Pledge_code,
+        business_experience
     ]
 
     # Объединение закодированных данных
-    input_data = pd.concat([pd.Series(input_data), nationality_encoded, filial_encoded, region_encoded, 
-                            loan_goal_encoded, sector_encoded, currency_encoded, pledge_encoded], axis=0)
+    input_data = pd.concat([pd.Series(input_data), Married_encoded, Nationality_encoded, Educ_encoded], axis=0)
 
     # Преобразуем в массив numpy и делаем предсказание
     input_array = np.array(input_data).reshape(1, -1)
@@ -106,13 +122,40 @@ def Credit_sum(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_prei
                    
 # Основная функция
 def main():
-    sex = st.radio("Укажите свой пол:", ['Мужской', 'Женский'])
+    FamilySize = st.number_input('Сколько у вас членов семьи?', step=1, value=0)
+    Loan_amount = st.number_input('На какую сумму хотите взять кредит?', step=1, value=0)
+    Loan_term = st.number_input('На какой срок вы хотите взять кредит(месяц)?', step=1, value=0) 
+    Monthly_repayment_amount_according_to_schedule = st.number_input('Ежемесячная сумма погашения?', step=1, value=0) 
+    Grace_period_(month) = st.number_input('Льготный период?', step=1, value=0)
+    Capital = st.number_input('Ваш начальный капитал?', step=1, value=0)
+    Asset = st.number_input('Ваш актив?', step=1, value=0)
+    Days_overdue = st.number_input('Дни просрочки?', step=1, value=0)
+    Number_of_overdue = st.number_input('Дни количество дней просрочки?', step=1, value=0)
+    Lending_stage_(which_time_a_loan_is_received) = st.number_input('Какой раз вы уже получаете кредит?', step=1, value=0)
+    Gross_profit = st.number_input('Валовая прибыль', step=1, value=0)
+    Net_Profit = st.number_input('Чистая прибыль', step=1, value=0)
+    Age = st.number_input('Сколько вам лет? запишите ваш год рождения в формате ', step=1, value=0)
+    
+    isFemale = st.radio("Укажите свой пол:", ['Мужской', 'Женский'])
     if sex == 'Мужской':
-        Gender = 0
+        Мужской = 0
     else:
-        Gender = 1
-        
-    # Создаем dummy-столбцы со значениями False для всех категорий
+        Женский = 1
+
+    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Мужской', 'Женский'])
+    if filial == 'Истаравшан':
+        Истаравшан = 0
+    else:
+        Хучанд = 1
+    else:
+        Ч. Расулов = 2
+    else:
+        Душанбе = 3
+    else:
+        Исфара = 4
+    else:
+        Панчакент = 5
+        # Создаем dummy-столбцы со значениями False для всех категорий
     nationality_encoded = pd.get_dummies(data1, prefix='', prefix_sep='').astype(bool)
     # Получаем выбор пользователя
     selected_nationality = st.selectbox('Введите национальность:', data1)
@@ -147,30 +190,7 @@ def main():
     if selected_filial is not None:
         filial_encoded = filial_encoded[selected_filial].astype(bool)
 
-    region_encoded = pd.get_dummies(data3, prefix='', prefix_sep='').astype(bool)
-    selected_region = st.selectbox('Город\Регион проживания:', data3)
-    if selected_region is not None:
-        region_encoded = region_encoded[selected_region].astype(bool)
-
-    sector_encoded = pd.get_dummies(data5, prefix='', prefix_sep='').astype(bool)
-    selected_sector = st.selectbox('Сфера деятельности:', data5)
-    if selected_sector is not None:
-        sector_encoded = sector_encoded[selected_sector].astype(bool)
-
-    loan_goal_encoded = pd.get_dummies(data4, prefix='', prefix_sep='').astype(bool)
-    selected_goal = st.selectbox('Цель кредита:', data4)
-    if selected_goal is not None:
-        loan_goal_encoded = loan_goal_encoded[selected_goal].astype(bool)
-        
-    pledge_encoded = pd.get_dummies(data6, prefix='', prefix_sep='').astype(bool)
-    selected_pledge = st.selectbox('Тип залога:', data6)
-    if selected_pledge is not None:
-        pledge_encoded = pledge_encoded[selected_pledge].astype(bool)
     
-    currency_encoded = pd.get_dummies(data7, prefix='', prefix_sep='').astype(bool)
-    selected_currancy = st.selectbox('Тип валюты:', data7)
-    if selected_currancy is not None:      
-        currency_encoded = currency_encoded[selected_currancy].astype(bool)
 
     Loan_amount = st.number_input('На какую сумму хотите взять кредит?', step=1, value=0) 
 
