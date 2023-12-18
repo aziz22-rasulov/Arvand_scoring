@@ -25,12 +25,12 @@ data2 = pd.DataFrame({'Nationality': ['Узбек', 'Точик', 'Тотор', 
 data3 = pd.DataFrame({'Educ': ['Аспирантура', 'Миёна', 'Миёнаи махсус', 'Миёнаи нопурра', 'Оли', 'Олии нопурра']})
 
     
-def issue_a_loan(FamilySize, Loan Amount, Loan Term,
-                 Monthly repayment amount according to schedule, Grace period (month),
-                 Capital, Asset, Days overdue, Number of overdue,
-                 Lending stage (which time a loan is received, Gross profit,
-                 Net Profit, Age, isFemale, Filial_code,
-                 Region_code, Direction of activity, Currency_code, Pledge_code,
+def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience):
     # Преобразование business_experience в числовой формат
     business_experience = int(business_experience)
@@ -41,7 +41,7 @@ def issue_a_loan(FamilySize, Loan Amount, Loan Term,
         Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
         Capital, Asset, Days_overdue, Number_of_overdue,
         Lending_stage_(which_time_a_loan_is_received), Gross_profit,
-        Net_Profit, Age, isFemale, Filial_code,
+        Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
     ]
@@ -68,7 +68,7 @@ def Delays_days(FamilySize, Loan_Amount, Loan_Term,
                  Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
                  Capital, Asset, Days_overdue, Number_of_overdue,
                  Lending_stage_(which_time_a_loan_is_received), Gross_profit,
-                 Net_Profit, Age, isFemale, Filial_code,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience):
     # Исправлено: добавлено преобразование business_experience в числовой формат
@@ -79,7 +79,7 @@ def Delays_days(FamilySize, Loan_Amount, Loan_Term,
         Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
         Capital, Asset, Days_overdue, Number_of_overdue,
         Lending_stage_(which_time_a_loan_is_received), Gross_profit,
-        Net_Profit, Age, isFemale, Filial_code,
+        Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
     ]
@@ -93,21 +93,21 @@ def Delays_days(FamilySize, Loan_Amount, Loan_Term,
     return reg1  
 
 def Credit_sum(FamilySize, Loan_Amount, Loan_Term,
-        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
-        Capital, Asset, Days_overdue, Number_of_overdue,
-        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
-        Net_Profit, Age, isFemale, Filial_code,
-        Region_code, Direction_of_activity, Currency_code, Pledge_code,
-        business_experience):
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
+                 business_experience):
     # Исправлено: добавлено преобразование business_experience в числовой формат
     business_experience = int(business_experience)
 
     input_data = [
-       FamilySize, Loan_Amount, Loan_Term,
+        FamilySize, Loan_Amount, Loan_Term,
         Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
         Capital, Asset, Days_overdue, Number_of_overdue,
         Lending_stage_(which_time_a_loan_is_received), Gross_profit,
-        Net_Profit, Age, isFemale, Filial_code,
+        Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
     ]
@@ -135,6 +135,15 @@ def main():
     Gross_profit = st.number_input('Валовая прибыль', step=1, value=0)
     Net_Profit = st.number_input('Чистая прибыль', step=1, value=0)
     Age = st.number_input('Сколько вам лет? запишите ваш год рождения в формате ', step=1, value=0)
+
+
+    # Создаем dummy-столбцы со значениями False для всех категорий
+    Married_encoded = pd.get_dummies(data1, prefix='', prefix_sep='').astype(bool)
+    # Получаем выбор пользователя
+    selected_Married = st.selectbox('Введите ваше семейное положение:', data1)
+    # Если выбор сделан, обновляем соответствующий dummy-столбец в True
+    if selected_Married is not None:
+        selected_Married = Married_encoded[selected_Married].astype(bool)
     
     isFemale = st.radio("Укажите свой пол:", ['Мужской', 'Женский'])
     if sex == 'Мужской':
@@ -142,7 +151,26 @@ def main():
     else:
         Женский = 1
 
-    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Мужской', 'Женский'])
+# Создаем dummy-столбцы со значениями False для всех категорий
+    nationality_encoded = pd.get_dummies(data2, prefix='', prefix_sep='').astype(bool)
+    # Получаем выбор пользователя
+    selected_nationality = st.selectbox('Введите национальность:', data2)
+    # Если выбор сделан, обновляем соответствующий dummy-столбец в True
+    if selected_nationality is not None:
+        nationality_encoded = nationality_encoded[selected_nationality].astype(bool)
+
+
+    educ =  ['Аспирантура', 'Оли', 'Миёнаи махсус', 'Олии нопурра', 'Миёна', 'Миёнаи нопурра']
+    education = st.selectbox('Уровень образования:', educ)
+    label_encoder = LabelEncoder()
+    encoded_educ = label_encoder.fit_transform(educ)
+    Education = encoded_educ[educ.index(education)]
+
+
+
+    
+
+    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Истаравшан', 'Хучанд', 'Ч. Расулов', 'Душанбе', 'Исфара', 'Панчакент'])
     if filial == 'Истаравшан':
         Истаравшан = 0
     else:
@@ -155,23 +183,196 @@ def main():
         Исфара = 4
     else:
         Панчакент = 5
-        # Создаем dummy-столбцы со значениями False для всех категорий
-    nationality_encoded = pd.get_dummies(data1, prefix='', prefix_sep='').astype(bool)
-    # Получаем выбор пользователя
-    selected_nationality = st.selectbox('Введите национальность:', data1)
-    # Если выбор сделан, обновляем соответствующий dummy-столбец в True
-    if selected_nationality is not None:
-        nationality_encoded = nationality_encoded[selected_nationality].astype(bool)
-    
-    Age = st.number_input('Сколько вам полных лет?', step=1, value=0)
+        
+    Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Шахристон', 'Гули сурх', 'Худжанд-Центр', 'Спитамен', 'Шарк', 'Мархамат', 'Душанбе', 'Навкент',
+                           'Кистакуз', 'Худжанд-Панчшанбе', 'Бустон', 'Истаравшан-филиал', 'Рудаки', 'Ашт', 'Калининобод',
+                           'Сино', 'Исфара', 'Хисор', 'Зафаробод', 'Ничони', 'Вахдат', 'Мехнатобод', 'Уяс', 'Дж.Расулов',
+                           'Конибодом', 'Дусти', 'Ниёзбек','Истаравшан', 'Рогун','Гончи', 'Чашмасор', 'Нофароч', 'Ободи',
+                           'Каракчикум', 'Оббурдон', 'Куруш', 'Ворух', 'Гулякандоз', 'Некфайз', 'Сомгор', 'Пунук', 'Панчакент',
+                           'Кулканд', 'Оппон', 'Файзобод', 'Турсунзода', 'Гусар', 'Равшан','Ифтихор', 'Х.Алиев', 'Ёри',
+                           'Мучун', 'Саразм'])
+     if region == 'Шахристон':
+        Шахристон = 0
+    else:
+        Гули сурх = 1
+    else:
+        Худжанд-Центр = 2
+    else:
+        Спитамен = 3
+    else:
+        Шарк = 4
+    else:
+        Мархамат = 5
+    else:
+        Душанбе = 6
+    else:
+       Навкент = 7
+    else:
+        Кистакуз = 8
+    else:
+        Худжанд-Панчшанбе = 9
+    else:
+        Бустон = 10
+    else:
+        Истаравшан-филиал = 11
+    else:
+        Рудаки = 12
+    else:
+        Ашт = 13
+    else:
+        Калининобод = 14
+    else:
+        Сино = 15
+    else:
+        Исфара = 16
+    else:
+        Хисор = 17
+    else:
+        Зафаробод = 18
+    else:
+        Ничони = 19
+    else:
+        Вахдат = 20
+    else:
+        Мехнатобод = 21
+    else:
+       Уяс = 22
+    else:
+        Дж.Расулов = 23
+    else:
+        Конибодом = 24
+    else:
+        Дусти = 25
+    else:
+        Ниёзбек = 26
+    else:
+        Истаравшан = 27
+    else:
+        Рогун = 28
+    else:
+        Гончи = 29
+    else:
+        Чашмасор = 30
+    else:
+        Нофароч = 31
+    else:
+        Ободи = 32
+    else:
+        Каракчикум = 33
+    else:
+        Оббурдон = 34
+    else:
+        Куруш = 35
+    else:
+        Ворух = 36
+    else:
+       Гулякандоз = 37
+    else:
+        Некфайз = 38
+    else:
+        Сомгор = 39
+    else:
+        Пунук = 40
+    else:
+        Панчакент = 41
+    else:
+        Кулканд = 42
+    else:
+        Оппон = 43
+    else:
+        Файзобод = 44
+    else:
+        Турсунзода = 45
+    else:
+        Гусар = 46
+    else:
+        Равшан = 47
+    else:
+        Ифтихор = 48
+    else:
+        Х.Алиев = 49
+    else:
+        Ёри = 50
+    else:
+        Мучун = 51
+    else:
+       Саразм = 52
 
-    family_options = ['Оиладор', 'Беоила', 'Бевамард (бевазан)', 'Чудошуда']
-    familyst = st.selectbox('Семейное положение:', family_options)
-    label_encoder = LabelEncoder()
-    encoded_family = label_encoder.fit_transform(family_options)
-    FamilyStatus = encoded_family[family_options.index(familyst)]
+
+    Direction_of_activity = st.radio("Укажите ваше направление деятельности:", ['Животноводство и переработка молока', 'Приобретение техники',
+                                     'Ремонт дома', 'торговля', 'Земледелие', 'Приобретение мебели',
+                                     'Оплата на лечение', 'Проведение мероприятий', 'Оплата поездок',
+                                     'Услуги', 'Переоборудование транспорта', 'Потребнужды',
+                                     'Оплата образования', 'Производство', 'Покупка квартиры',
+                                     'Потреб.другое', 'Ремонт места деятельности', 'Сельское хозяйство',
+                                     'Все', 'Сушка фруктов', 'Коммерческий'])
+    if direction == 'Животноводство и переработка молока':
+        Чорводори ва коркарди шир = 0
+    else:
+        Приобретение техники = 1
+    else:
+        Ремонт дома = 2
+    else:
+        торговля = 3
+    else:
+        Земледелие = 4
+    else:
+        Приобретение мебели = 5
+    else:
+        Оплата на лечение = 6
+    else:
+        Проведение мероприятий = 7
+    else:
+        Оплата поездок = 8
+    else:
+        Услуги = 9
+    else:
+        Переоборудование транспорта = 10
+    else:
+        Потребнужды = 11
+    else:
+        Оплата образования = 12
+    else:
+        Производство = 13
+    else:
+        Покупка квартиры = 14
+    else:
+        Потреб.другое = 15
+    else:
+        Ремонт места деятельности = 16
+    else:
+        Сельское хозяйство = 17
+    else:
+        Все = 18
+    else:
+        Сушка фруктов = 19
+    else:
+        Коммерческий = 20
     
-    FamilySize = st.number_input('Сколько человек в семье?', step=1, value=0)
+     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Доллар США', 'Сомони', Рос.рубль])
+    if currency == 'Мужской':
+        Доллар США = 0
+    else:
+        Сомони = 1
+    else:
+        Рос.рубль = 2
+
+
+     Pledge_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Группа', 'Категория 1', 'Категория 2', 'Категория 3', 'Категория 4'])
+    if Pledge == 'Группа':
+        Группа = 0
+    else:
+        Категория 1 = 1
+    else:
+        Категория 2 = 2
+    else:
+        Категория 3 = 3
+    else:
+        Категория 4 = 4
+
+ 
+    
+    
     
     educ =  ['Аспирантура', 'Оли', 'Миёнаи махсус', 'Олии нопурра', 'Миёна', 'Миёнаи нопурра']
     education = st.selectbox('Уровень образования:', educ)
@@ -179,45 +380,10 @@ def main():
     encoded_educ = label_encoder.fit_transform(educ)
     Education = encoded_educ[educ.index(education)]
 
-    type = st.selectbox('Тип кредита:', ['Потребительский кредит','Кредит на предпринимательскую деятельность'])
-    if type=='Потребительский кредит':
-        type_of_credit = 0
-    else:
-        type_of_credit = 1
-        
-    filial_encoded = pd.get_dummies(data2, prefix='', prefix_sep='').astype(bool)
-    selected_filial = st.selectbox('Филиал Банка:', data2)
-    if selected_filial is not None:
-        filial_encoded = filial_encoded[selected_filial].astype(bool)
-
+    
     
 
-    Loan_amount = st.number_input('На какую сумму хотите взять кредит?', step=1, value=0) 
 
-    Loan_term = st.number_input('На какой срок вы хотите взять кредит(месяц)?', step=1, value=0) 
-
-    Lending_stage = st.number_input('Сколько кредитов вы брали(с учетом этого)?', step=1, value=0)
-    if Lending_stage>1:
-         have_delay = st.selectbox('Есть ли у вас просрочки?', ['Да','Нет'])
-         if have_delay == 'Да':
-             has_overdue = 1
-         else:
-             has_overdue = 0
-    else:
-        has_overdue = 0
-    Repayment = st.number_input('Ежемесячная сумма погашения:', step=1, value=0)
-    
-    Grace_preiod = st.number_input('Льготный период (месяц):', step=1, value=0)
-    
-    have_debt = st.selectbox('У вас есть долги?', ['Да','Нет'])
-    if have_debt == 'Да':
-        Debt = st.number_input('Введите сумму долга:', step=1, value=0)
-    else:
-        Debt = 0
-    if Debt > 10000:
-        high_debt = 1
-    else:
-        high_debt = 0
         
     options = ['0-5', '5-10', '10-15', '15-20', '20-25', '25-40', '40-50', '50+']
     bus_exp =  st.radio("Стаж работы:", options)
@@ -232,24 +398,33 @@ def main():
     result3 = ""
     result4 = ""
     if st.button("Predict"):
-        result1, result2 = issue_a_loan(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded)
+        result1, result2 = issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
+                 business_experience)
         if result1 == 0:
-            result3 = Credit_sum(Gender, FamilySize, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded, result1)
+            result3 = Credit_sum(FamilySize, Loan_Amount, Loan_Term,
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
+                 business_experience, result1)
             st.success(f'Сумма вам не доступна')
             st.success(f'Максимально доступная сумма: {result3}')
         else:
             st.success(f'Вероятность выдачи кредита {result1[0]*100:.2f}%')
             st.success(f'Вероятность возврата кредита вовремя: {result2[0][0] * 100:.2f}%')
-            result4 = Delays_days(Gender, FamilySize, Loan_amount, Loan_term, Repayment, Grace_preiod, Debt, Lending_stage,
-                 Net_profit, Age, FamilyStatus, Education, business_experience, type_of_credit, has_overdue,
-                 high_debt, nationality_encoded, filial_encoded, region_encoded, loan_goal_encoded, 
-                 sector_encoded, currency_encoded, pledge_encoded)
+            result4 = Delays_days(FamilySize, Loan_Amount, Loan_Term,
+                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Capital, Asset, Days_overdue, Number_of_overdue,
+                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
+                 Region_code, Direction_of_activity, Currency_code, Pledge_code,
+                 business_experience)
             st.success(f'Примерная просрочка: {(result4[0]).astype(int)}')
                                                    
 if __name__ == '__main__':
