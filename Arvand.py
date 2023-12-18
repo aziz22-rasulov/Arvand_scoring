@@ -26,9 +26,9 @@ data3 = pd.DataFrame({'Educ': ['Аспирантура', 'Миёна', 'Миён
 
     
 def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience):
@@ -38,9 +38,9 @@ def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
     # Преобразование всех переменных в числовой формат
     input_data = [
         FamilySize, Loan_Amount, Loan_Term,
-        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Monthly_repayment_amount_according_to_schedule, Grace_period,
         Capital, Asset, Days_overdue, Number_of_overdue,
-        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Lending_stage, Gross_profit,
         Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
@@ -65,9 +65,9 @@ def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
 
 
 def Delays_days(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience):
@@ -76,9 +76,9 @@ def Delays_days(FamilySize, Loan_Amount, Loan_Term,
 
     input_data = [
         FamilySize, Loan_Amount, Loan_Term,
-        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Monthly_repayment_amount_according_to_schedule, Grace_period,
         Capital, Asset, Days_overdue, Number_of_overdue,
-        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Lending_stage, Gross_profit,
         Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
@@ -93,9 +93,9 @@ def Delays_days(FamilySize, Loan_Amount, Loan_Term,
     return reg1  
 
 def Credit_sum(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience):
@@ -104,9 +104,9 @@ def Credit_sum(FamilySize, Loan_Amount, Loan_Term,
 
     input_data = [
         FamilySize, Loan_Amount, Loan_Term,
-        Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+        Monthly_repayment_amount_according_to_schedule, Grace_period,
         Capital, Asset, Days_overdue, Number_of_overdue,
-        Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+        Lending_stage, Gross_profit,
         Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
         Region_code, Direction_of_activity, Currency_code, Pledge_code,
         business_experience
@@ -126,12 +126,12 @@ def main():
     Loan_amount = st.number_input('На какую сумму хотите взять кредит?', step=1, value=0)
     Loan_term = st.number_input('На какой срок вы хотите взять кредит(месяц)?', step=1, value=0) 
     Monthly_repayment_amount_according_to_schedule = st.number_input('Ежемесячная сумма погашения?', step=1, value=0) 
-    Grace_period_(month) = st.number_input('Льготный период?', step=1, value=0)
+    Grace_period = st.number_input('Льготный период?', step=1, value=0)
     Capital = st.number_input('Ваш начальный капитал?', step=1, value=0)
     Asset = st.number_input('Ваш актив?', step=1, value=0)
     Days_overdue = st.number_input('Дни просрочки?', step=1, value=0)
     Number_of_overdue = st.number_input('Дни количество дней просрочки?', step=1, value=0)
-    Lending_stage_(which_time_a_loan_is_received) = st.number_input('Какой раз вы уже получаете кредит?', step=1, value=0)
+    Lending_stage = st.number_input('Какой раз вы уже получаете кредит?', step=1, value=0)
     Gross_profit = st.number_input('Валовая прибыль', step=1, value=0)
     Net_Profit = st.number_input('Чистая прибыль', step=1, value=0)
     Age = st.number_input('Сколько вам лет? запишите ваш год рождения в формате ', step=1, value=0)
@@ -399,17 +399,17 @@ def main():
     result4 = ""
     if st.button("Predict"):
         result1, result2 = issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience)
         if result1 == 0:
             result3 = Credit_sum(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience, result1)
@@ -419,9 +419,9 @@ def main():
             st.success(f'Вероятность выдачи кредита {result1[0]*100:.2f}%')
             st.success(f'Вероятность возврата кредита вовремя: {result2[0][0] * 100:.2f}%')
             result4 = Delays_days(FamilySize, Loan_Amount, Loan_Term,
-                 Monthly_repayment_amount_according_to_schedule, Grace_period_(month),
+                 Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
-                 Lending_stage_(which_time_a_loan_is_received), Gross_profit,
+                 Lending_stage, Gross_profit,
                  Net_Profit, Age, Married_encoded, isFemale, nationality_encoded, educ, Filial_code,
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience)
