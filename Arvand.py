@@ -353,13 +353,7 @@ def main():
     else:
         Commercial = 20
     
-     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Dollar', 'Somoni', 'Rubl'])
-    if currency == 'Dollar':
-        Dollar = 0
-    elif currency == 'Somoni':
-        Somoni = 1
-    else:
-        Rubl = 2
+    
 
 
      Pledge_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Group', 'Category_1', 'Category_2', 'Category_3', 'Category_4'])
