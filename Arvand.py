@@ -205,7 +205,7 @@ def main():
         Marhamat = 5
     elif region == 'Dushanbe':
         Dushanbe = 6
-     elif region == 'Navkent':
+    elif region == 'Navkent':
         Navkent = 7
     elif region == 'Kistacuz' :
         Kistacuz = 8
