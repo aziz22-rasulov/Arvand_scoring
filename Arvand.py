@@ -356,19 +356,6 @@ def main():
     
 
 
-     Pledge_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Group', 'Category_1', 'Category_2', 'Category_3', 'Category_4'])
-    if Pledge == 'Group':
-        Group = 0
-    elif Pledge == 'Category_1':
-        Category_1 = 1
-    elif Pledge == 'Category_2':
-        Category_2 = 2
-    elif Pledge == 'Category_3':
-        Category_3 = 3
-    else:
-        Category_4 = 4
-
- 
     
     
     
