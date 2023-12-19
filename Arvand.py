@@ -171,7 +171,7 @@ def main():
     
 
     Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Istaravshan', 'Khujand', 'G_Rasulov', 'Dushanbe', 'Isfara', 'Panjakent'])
-    if filial == 'Istaravshan':
+    if Filial_code == 'Istaravshan':
         Istaravshan = 0
     elif filial == 'Khujand':
         Khujand = 1
@@ -191,7 +191,7 @@ def main():
                            'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
                            'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H_Aliev', 'Yori',
                            'Muchun', 'Sarazm'])
-    if region == 'Shahriston':
+    if Region_code == 'Shahriston':
         Shahriston = 0
     elif region == 'Guli Surh':
         Guli_Surh = 1
@@ -310,7 +310,7 @@ def main():
                                      'Consumed_other', 'Repair_of_place_of_business', 'Agriculture',
                                      'Everyone', 'Fruit_Drying', 'Commercial'
 ])
-    if activity == 'Animal_husbandry_and_milk_processing':
+    if Direction_of_activity == 'Animal_husbandry_and_milk_processing':
         Animal_husbandry_and_milk_processing = 0
     elif activity == 'Purchase_of_equipment':
         Purchase_of_equipment = 1
