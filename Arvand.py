@@ -191,7 +191,7 @@ def main():
                            'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
                            'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H_Aliev', 'Yori',
                            'Muchun', 'Sarazm'])
-     if region == 'Shahriston':
+    if region == 'Shahriston':
         Shahriston' = 0
     elif region == 'Guli Surh':
         Guli Surh = 1
