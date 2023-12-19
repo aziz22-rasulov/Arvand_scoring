@@ -146,7 +146,7 @@ def main():
         selected_Married = Married_encoded[selected_Married].astype(bool)
     
     isFemale = st.radio("Укажите свой пол:", ['Мужской', 'Женский'])
-    if sex == 'Мужской':
+    if isFemale == 'Мужской':
         Мужской = 0
     else:
         Женский = 1
