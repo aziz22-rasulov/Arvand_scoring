@@ -184,8 +184,8 @@ def main():
     else:
         Panjakent = 5
         
-    Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli_Surh', 'Khujand-Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
-                           'Kistacuz', 'Khujand-Panchshanbe', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
+    Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli_Surh', 'Khujand_Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
+                           'Kistacuz', 'Khujand_Panchshanbe', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
                            'Sino', 'Isfara', 'Hisor', 'Zafarobod', 'Nichoni', 'Vahdat', 'Mehnatobod', 'Uyas', 'G_Rasulov',
                            'Konibodom', 'Dusti', 'Niyozbek','Istaravshan', 'Rogun','Gonchi', 'Chashmasor', 'Nofaroch', 'Obodi',
                            'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
@@ -195,7 +195,7 @@ def main():
         Shahriston = 0
     elif region == 'Guli Surh':
         Guli_Surh = 1
-    elif region == 'Khujand-Center' :
+    elif region == 'Khujand_Center' :
         Khujand-Center = 2
     elif region == 'Spitamen':
         Spitamen = 3
@@ -209,7 +209,7 @@ def main():
         Navkent = 7
     elif region == 'Kistacuz' :
         Kistacuz = 8
-    elif region == 'Khujand-Panchshanbe':
+    elif region == 'Khujand_Panchshanbe':
         Khujand-Panchshanbe = 9
     elif region == 'Buston':
         Buston = 10
