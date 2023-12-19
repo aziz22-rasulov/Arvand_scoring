@@ -170,13 +170,13 @@ def main():
 
     
 
-    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Istaravshan', 'Khujand', 'G.Rasulov', 'Dushanbe', 'Isfara', 'Panjakent'])
+    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Istaravshan', 'Khujand', 'G_Rasulov', 'Dushanbe', 'Isfara', 'Panjakent'])
     if filial == 'Istaravshan':
         Istaravshan = 0
     elif filial == 'Khujand':
         Khujand = 1
-    elif filial == 'G.Rasulov':
-        G.Rasulov = 2
+    elif filial == 'G_Rasulov':
+        G_Rasulov = 2
     elif filial == 'Dushanbe':
         Dushanbe = 3
     elif filial == 'Isfara':
@@ -185,133 +185,194 @@ def main():
         Panjakent = 5
         
     Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli Surh', 'Khujand-Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
-                           'Kistacuz', 'Khujand-center', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
-                           'Sino', 'Isfara', 'Hisor', 'Zafarobod', 'Nichoni', 'Vahdat', 'Mehnatobod', 'Uyas', 'G.Rasulov',
+                           'Kistacuz', 'Khujand-Panchshanbe', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
+                           'Sino', 'Isfara', 'Hisor', 'Zafarobod', 'Nichoni', 'Vahdat', 'Mehnatobod', 'Uyas', 'G_Rasulov',
                            'Konibodom', 'Dusti', 'Niyozbek','Istaravshan', 'Rogun','Gonchi', 'Chashmasor', 'Nofaroch', 'Obodi',
                            'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
-                           'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H.Aliev', 'Yori',
+                           'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H_Aliev', 'Yori',
                            'Muchun', 'Sarazm'])
-     if region == 'Шахристон':
-        Шахристон = 0
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-     elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-    elif region == 'Гули сурх':
-        Гули сурх = 1
-    elif region == 'Худжанд-Центр' :
-        Худжанд-Центр = 2
-    elif region == 'Спитамен':
-        Спитамен = 3
-
+     if region == 'Shahriston'':
+        Shahriston' = 0
+    elif region == 'Guli Surh':
+        Guli Surh = 1
+    elif region == 'Khujand-Center' :
+        Khujand-Center = 2
+    elif region == 'Spitamen':
+        Spitamen = 3
+    elif region == 'Shark':
+        Shark = 4
+    elif region == 'Marhamat' :
+        Marhamat = 5
+    elif region == 'Dushanbe':
+        Dushanbe = 6
+     elif region == 'Navkent':
+        Navkent = 7
+    elif region == 'Kistacuz' :
+        Kistacuz = 8
+    elif region == 'Khujand-Panchshanbe':
+        Khujand-Panchshanbe = 9
+    elif region == 'Buston':
+        Buston = 10
+    elif region == 'Isfara_filial' :
+        Isfara_filial = 11
+    elif region == 'Rudaki':
+        Rudaki = 12
+    elif region == 'Asht':
+        Asht = 13
+    elif region == 'Kalininobod' :
+        Kalininobod = 14
+    elif region == 'Sino':
+        Sino = 15
+    elif region == 'Isfara':
+        Isfara = 16
+    elif region == 'Hisor' :
+        Hisor = 17
+    elif region == 'Zafarobod':
+        Zafarobod = 18
+    elif region == 'Nichoni':
+        Nichoni = 19
+    elif region == 'Vahdat' :
+        Vahdat = 20
+    elif region == 'Mehnatobod':
+        Mehnatobod = 21
+    elif region == 'Uyas':
+        Uyas = 22
+    elif region == 'G_Rasulov':
+        G_Rasulov = 23
+    elif region == 'Konibodom':
+        Konibodom = 24
+    elif region == 'Dusti':
+        Dusti = 25
+    elif region == 'Niyozbek':
+        Niyozbek = 26
+    elif region == 'Istaravshan':
+        Istaravshan = 27
+    elif region == 'Rogun':
+        Rogun = 28
+    elif region == 'Gonchi':
+        Gonchi = 29
+    elif region == 'Chashmasor':
+        Chashmasor = 30
+    elif region == 'Nofaroch':
+        Nofaroch = 31
+    elif region == 'Obodi':
+        Obodi = 32
+    elif region == 'Karakchikum':
+        Karakchikum = 33
+    elif region == 'Obburdon':
+        Obburdon = 34
+    elif region == 'Kurush':
+        Kurush = 35
+    elif region == 'Voruh':
+        Voruh = 36
+    elif region == 'Gulyakandoz':
+        Gulyakandoz = 37
+    elif region == 'Nekfayz':
+        Nekfayz = 38
+    elif region == 'Somgor':
+        Somgor = 39
+    elif region == 'Punuk':
+        Punuk = 40
+    elif region == 'Panjakent':
+        Panjakent = 41
+    elif region == 'Kulkand':
+        Kulkand = 42
+    elif region == 'Oppon':
+        Oppon = 43
+    elif region == 'Fayzobod':
+        Fayzobod = 44
+    elif region == 'Tursunzoda':
+        Tursunzoda = 45
+    elif region == 'Gusar':
+        Gusar = 46
+    elif region == 'Ravshan':
+        Ravshan = 47
+    elif region == 'Iftihor':
+        Iftihor = 48
+    elif region == 'H_Aliev':
+        H_Aliev = 49
+    elif region == 'Yori':
+        Yori = 50
+    elif region == 'Muchun':
+        Muchun = 51
+    else:
+        Sarazm = 52
     
 
 
 
 
-
-    Direction_of_activity = st.radio("Укажите ваше направление деятельности:", ['Животноводство и переработка молока', 'Приобретение техники',
-                                     'Ремонт дома', 'торговля', 'Земледелие', 'Приобретение мебели',
-                                     'Оплата на лечение', 'Проведение мероприятий', 'Оплата поездок',
-                                     'Услуги', 'Переоборудование транспорта', 'Потребнужды',
-                                     'Оплата образования', 'Производство', 'Покупка квартиры',
-                                     'Потреб.другое', 'Ремонт места деятельности', 'Сельское хозяйство',
-                                     'Все', 'Сушка фруктов', 'Коммерческий'])
-    if direction == 'Животноводство и переработка молока':
-        Чорводори ва коркарди шир = 0
+    Direction_of_activity = st.radio("Укажите ваше направление деятельности:", ['Animal_husbandry_and_milk_processing', 'Purchase_of_equipment',
+                                     'House_renovation', 'trade', 'Agriculture', 'Purchasing_furniture',
+                                     'Payment_for_treatment', 'Carrying_out_events', 'Payment_for_travel',
+                                     'Services', 'Transport_conversion', 'Needs',
+                                     'Paying_for_education', 'Production', 'Buying_an_apartment',
+                                     'Consumed_other', 'Repair_of_place_of_business', 'Agriculture',
+                                     'Everyone', 'Fruit_Drying', 'Commercial'
+])
+    if activity == 'Animal_husbandry_and_milk_processing':
+        Animal_husbandry_and_milk_processing = 0
+    elif activity == 'Purchase_of_equipment':
+        Purchase_of_equipment = 1
+    elif activity == 'House_renovation':
+        House_renovation = 2
+    elif activity == 'trade':
+        trade = 3
+    elif activity == 'Agriculture':
+        Agriculture = 4
+    elif activity == 'Purchasing_furniture':
+        Purchasing_furniture = 5
+    elif region == 'Payment_for_treatment':
+        Payment_for_treatment = 6
+    elif region == 'Carrying_out_events':
+        Carrying_out_events = 7
+    elif region == 'Payment_for_travel':
+        Payment_for_travel = 8
+    elif region == 'Services':
+        Services = 9
+    elif region == 'Transport_conversion':
+        Transport_conversion = 10
+    elif region == 'Needs':
+        Needs = 11
+    elif region == 'Paying_for_education':
+        Paying_for_education = 12
+    elif region == 'Production':
+        Production = 13
+    elif region == 'Buying_an_apartment':
+        Buying_an_apartment = 14
+    elif region == 'Consumed_other':
+        Consumed_other = 15
+    elif region == 'Repair_of_place_of_business':
+        Repair_of_place_of_business = 16
+    elif region == 'Agriculture':
+        Agriculture = 17
+    elif region == 'Everyone':
+        Everyone = 18
+    elif region == 'Fruit_Drying':
+        Fruit_Drying = 19
     else:
-        Приобретение техники = 1
-    else:
-        Ремонт дома = 2
-    else:
-        торговля = 3
-    else:
-        Земледелие = 4
-    else:
-        Приобретение мебели = 5
-    else:
-        Оплата на лечение = 6
-    else:
-        Проведение мероприятий = 7
-    else:
-        Оплата поездок = 8
-    else:
-        Услуги = 9
-    else:
-        Переоборудование транспорта = 10
-    else:
-        Потребнужды = 11
-    else:
-        Оплата образования = 12
-    else:
-        Производство = 13
-    else:
-        Покупка квартиры = 14
-    else:
-        Потреб.другое = 15
-    else:
-        Ремонт места деятельности = 16
-    else:
-        Сельское хозяйство = 17
-    else:
-        Все = 18
-    else:
-        Сушка фруктов = 19
-    else:
-        Коммерческий = 20
+        Commercial = 20
     
-     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Доллар США', 'Сомони', Рос.рубль])
-    if currency == 'Мужской':
-        Доллар США = 0
+     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Dollar', 'Somoni', Rubl])
+    if currency == 'Dollar':
+        Dollar = 0
+    elif currency == 'Somoni':
+        Somoni = 1
     else:
-        Сомони = 1
-    else:
-        Рос.рубль = 2
+        Rubl = 2
 
 
-     Pledge_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Группа', 'Категория 1', 'Категория 2', 'Категория 3', 'Категория 4'])
-    if Pledge == 'Группа':
-        Группа = 0
+     Pledge_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Group', 'Category_1', 'Category_2', 'Category_3', 'Category_4'])
+    if Pledge == 'Group':
+        Group = 0
+    elif Pledge == 'Category_1':
+        Category_1 = 1
+    elif Pledge == 'Category_2':
+        Category_2 = 2
+    elif Pledge == 'Category_3':
+        Category_3 = 3
     else:
-        Категория 1 = 1
-    else:
-        Категория 2 = 2
-    else:
-        Категория 3 = 3
-    else:
-        Категория 4 = 4
+        Category_4 = 4
 
  
     
