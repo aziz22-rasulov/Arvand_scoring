@@ -184,7 +184,7 @@ def main():
     else:
         Panjakent = 5
         
-    Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli Surh', 'Khujand-Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
+    Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli_Surh', 'Khujand-Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
                            'Kistacuz', 'Khujand-Panchshanbe', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
                            'Sino', 'Isfara', 'Hisor', 'Zafarobod', 'Nichoni', 'Vahdat', 'Mehnatobod', 'Uyas', 'G_Rasulov',
                            'Konibodom', 'Dusti', 'Niyozbek','Istaravshan', 'Rogun','Gonchi', 'Chashmasor', 'Nofaroch', 'Obodi',
@@ -194,7 +194,7 @@ def main():
     if region == 'Shahriston':
         Shahriston = 0
     elif region == 'Guli Surh':
-        Guli Surh = 1
+        Guli_Surh = 1
     elif region == 'Khujand-Center' :
         Khujand-Center = 2
     elif region == 'Spitamen':
