@@ -22,7 +22,7 @@ with open("model_gb.pkl", "rb") as pickle_in:
 # Создание DataFrame с данными
 data1 = pd.DataFrame({'Married': ['beoila', 'oilador', 'bevamard', 'judoshuda']})
 data2 = pd.DataFrame({'Nationality': ['Uzbek', 'Tojik', 'Totor', 'Rus', 'Kirgiz', 'Ukrain', 'Others', 'Karis', 'Karachoi']})
-data3 = pd.DataFrame({'Educ': ['Aspirantura', 'Miena', 'Miena_mahsus', 'Miena_nopurra', 'Oli', 'Oli_nopurra']})
+data3 = pd.DataFrame({'Educ': ['Aspirantura', 'Oli', 'Miyona_mahsus', 'Oli_nopurra', 'Miyona', 'Miyona_nopurra']})
 
     
 def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
@@ -191,7 +191,7 @@ def main():
                            'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
                            'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H_Aliev', 'Yori',
                            'Muchun', 'Sarazm'])
-     if region == 'Shahriston'':
+     if region == 'Shahriston':
         Shahriston' = 0
     elif region == 'Guli Surh':
         Guli Surh = 1
@@ -353,7 +353,7 @@ def main():
     else:
         Commercial = 20
     
-     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Dollar', 'Somoni', Rubl])
+     Currency_code = st.radio("В какой валюте вы бы хотели получить кредит:", ['Dollar', 'Somoni', 'Rubl'])
     if currency == 'Dollar':
         Dollar = 0
     elif currency == 'Somoni':
@@ -378,7 +378,7 @@ def main():
     
     
     
-    educ =  ['Аспирантура', 'Оли', 'Миёнаи махсус', 'Олии нопурра', 'Миёна', 'Миёнаи нопурра']
+    educ =  ['Aspirantura', 'Oli', 'Miyona_mahsus', 'Oli_nopurra', 'Miyona', 'Miyona_nopurra']
     education = st.selectbox('Уровень образования:', educ)
     label_encoder = LabelEncoder()
     encoded_educ = label_encoder.fit_transform(educ)
