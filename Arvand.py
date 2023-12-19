@@ -196,7 +196,7 @@ def main():
     elif region == 'Guli Surh':
         Guli_Surh = 1
     elif region == 'Khujand_Center' :
-        Khujand-Center = 2
+        Khujand_Center = 2
     elif region == 'Spitamen':
         Spitamen = 3
     elif region == 'Shark':
@@ -210,7 +210,7 @@ def main():
     elif region == 'Kistacuz' :
         Kistacuz = 8
     elif region == 'Khujand_Panchshanbe':
-        Khujand-Panchshanbe = 9
+        Khujand_Panchshanbe = 9
     elif region == 'Buston':
         Buston = 10
     elif region == 'Isfara_filial' :
