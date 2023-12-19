@@ -20,9 +20,9 @@ with open("model_gb.pkl", "rb") as pickle_in:
     regression2 = joblib.load(pickle_in)
 
 # Создание DataFrame с данными
-data1 = pd.DataFrame({'Married': ['Беоила', 'Оиладор', 'Бевамард (бевазан)', 'Чудошуда']})
-data2 = pd.DataFrame({'Nationality': ['Узбек', 'Точик', 'Тотор', 'Рус', 'Киргиз', 'Украин', 'Другие', 'Карис', 'Карачои']})
-data3 = pd.DataFrame({'Educ': ['Аспирантура', 'Миёна', 'Миёнаи махсус', 'Миёнаи нопурра', 'Оли', 'Олии нопурра']})
+data1 = pd.DataFrame({'Married': ['beoila', 'oilador', 'bevamard', 'judoshuda']})
+data2 = pd.DataFrame({'Nationality': ['Uzbek', 'Tojik', 'Totor', 'Rus', 'Kirgiz', 'Ukrain', 'Others', 'Karis', 'Karachoi']})
+data3 = pd.DataFrame({'Educ': ['Aspirantura', 'Miena', 'Miena_mahsus', 'Miena_nopurra', 'Oli', 'Oli_nopurra']})
 
     
 def issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
@@ -170,7 +170,7 @@ def main():
 
     
 
-    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Истаравшан', 'Хучанд', 'Ч. Расулов', 'Душанбе', 'Исфара', 'Панчакент'])
+    Filial_code = st.radio("Укажите филиал банка, в котром вы получаете кредит:", ['Istaravshan', 'Khujand', 'G.Rasulov', 'Dushanbe', 'Isfara', 'Panjakent'])
     if filial == 'Istaravshan':
         Istaravshan = 0
     elif filial == 'Khujand':
@@ -185,118 +185,61 @@ def main():
         Panjakent = 5
         
     Region_code = st.radio("Укажите регион, в котром вы получаете кредит:", ['Shahriston', 'Guli Surh', 'Khujand-Center', 'Spitamen', 'Shark', 'Marhamat', 'Dushanbe', 'Navkent',
-                           'Kistacuz', 'Худжанд-Панчшанбе', 'Бустон', 'Истаравшан-филиал', 'Рудаки', 'Ашт', 'Калининобод',
-                           'Сино', 'Исфара', 'Хисор', 'Зафаробод', 'Ничони', 'Вахдат', 'Мехнатобод', 'Уяс', 'Дж.Расулов',
-                           'Конибодом', 'Дусти', 'Ниёзбек','Истаравшан', 'Рогун','Гончи', 'Чашмасор', 'Нофароч', 'Ободи',
-                           'Каракчикум', 'Оббурдон', 'Куруш', 'Ворух', 'Гулякандоз', 'Некфайз', 'Сомгор', 'Пунук', 'Панчакент',
-                           'Кулканд', 'Оппон', 'Файзобод', 'Турсунзода', 'Гусар', 'Равшан','Ифтихор', 'Х.Алиев', 'Ёри',
-                           'Мучун', 'Саразм'])
+                           'Kistacuz', 'Khujand-center', 'Buston', 'Isfara_filial', 'Rudaki', 'Asht', 'Kalininobod',
+                           'Sino', 'Isfara', 'Hisor', 'Zafarobod', 'Nichoni', 'Vahdat', 'Mehnatobod', 'Uyas', 'G.Rasulov',
+                           'Konibodom', 'Dusti', 'Niyozbek','Istaravshan', 'Rogun','Gonchi', 'Chashmasor', 'Nofaroch', 'Obodi',
+                           'Karakchikum', 'Obburdon', 'Kurush', 'Voruh', 'Gulyakandoz', 'Nekfayz', 'Somgor', 'Punuk', 'Panjakent',
+                           'Kulkand', 'Oppon', 'Fayzobod', 'Tursunzoda', 'Gusar', 'Ravshan','Iftihor', 'H.Aliev', 'Yori',
+                           'Muchun', 'Sarazm'])
      if region == 'Шахристон':
         Шахристон = 0
-    else:
+    elif region == 'Гули сурх':
         Гули сурх = 1
-    else:
+    elif region == 'Худжанд-Центр' :
         Худжанд-Центр = 2
-    else:
+    elif region == 'Спитамен':
         Спитамен = 3
-    else:
-        Шарк = 4
-    else:
-        Мархамат = 5
-    else:
-        Душанбе = 6
-    else:
-       Навкент = 7
-    else:
-        Кистакуз = 8
-    else:
-        Худжанд-Панчшанбе = 9
-    else:
-        Бустон = 10
-    else:
-        Истаравшан-филиал = 11
-    else:
-        Рудаки = 12
-    else:
-        Ашт = 13
-    else:
-        Калининобод = 14
-    else:
-        Сино = 15
-    else:
-        Исфара = 16
-    else:
-        Хисор = 17
-    else:
-        Зафаробод = 18
-    else:
-        Ничони = 19
-    else:
-        Вахдат = 20
-    else:
-        Мехнатобод = 21
-    else:
-       Уяс = 22
-    else:
-        Дж.Расулов = 23
-    else:
-        Конибодом = 24
-    else:
-        Дусти = 25
-    else:
-        Ниёзбек = 26
-    else:
-        Истаравшан = 27
-    else:
-        Рогун = 28
-    else:
-        Гончи = 29
-    else:
-        Чашмасор = 30
-    else:
-        Нофароч = 31
-    else:
-        Ободи = 32
-    else:
-        Каракчикум = 33
-    else:
-        Оббурдон = 34
-    else:
-        Куруш = 35
-    else:
-        Ворух = 36
-    else:
-       Гулякандоз = 37
-    else:
-        Некфайз = 38
-    else:
-        Сомгор = 39
-    else:
-        Пунук = 40
-    else:
-        Панчакент = 41
-    else:
-        Кулканд = 42
-    else:
-        Оппон = 43
-    else:
-        Файзобод = 44
-    else:
-        Турсунзода = 45
-    else:
-        Гусар = 46
-    else:
-        Равшан = 47
-    else:
-        Ифтихор = 48
-    else:
-        Х.Алиев = 49
-    else:
-        Ёри = 50
-    else:
-        Мучун = 51
-    else:
-       Саразм = 52
+    elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+     elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+    elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+    elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+    elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+    elif region == 'Гули сурх':
+        Гули сурх = 1
+    elif region == 'Худжанд-Центр' :
+        Худжанд-Центр = 2
+    elif region == 'Спитамен':
+        Спитамен = 3
+
+    
+
+
+
 
 
     Direction_of_activity = st.radio("Укажите ваше направление деятельности:", ['Животноводство и переработка молока', 'Приобретение техники',
