@@ -383,7 +383,7 @@ def main():
     result3 = ""
     result4 = ""
     if st.button("Predict"):
-        result1, result2 = issue_a_loan(FamilySize, Loan_Amount, Loan_Term,
+        result1, result2 = issue_a_loan(FamilySize, Loan_Term,
                  Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
                  Lending_stage, Gross_profit,
@@ -391,7 +391,7 @@ def main():
                  Region_code, Direction_of_activity, Currency_code, Pledge_code,
                  business_experience)
         if result1 == 0:
-            result3 = Credit_sum(FamilySize, Loan_Amount, Loan_Term,
+            result3 = Credit_sum(FamilySize, Loan_Term,
                  Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
                  Lending_stage, Gross_profit,
@@ -403,7 +403,7 @@ def main():
         else:
             st.success(f'Вероятность выдачи кредита {result1[0]*100:.2f}%')
             st.success(f'Вероятность возврата кредита вовремя: {result2[0][0] * 100:.2f}%')
-            result4 = Delays_days(FamilySize, Loan_Amount, Loan_Term,
+            result4 = Delays_days(FamilySize, Loan_Term,
                  Monthly_repayment_amount_according_to_schedule, Grace_period,
                  Capital, Asset, Days_overdue, Number_of_overdue,
                  Lending_stage, Gross_profit,
